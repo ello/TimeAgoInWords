@@ -1,10 +1,5 @@
 language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
 before_install:
-- gem install cocoapods # Since Travis is not always on latest version
 - bundle exec pod install --project-directory=Demo/
-install:
-- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
 - set -o pipefail && xcodebuild -workspace Demo/Demo.xcworkspace -scheme Demo -configuration Debug test -sdk iphonesimulator | xcpretty -c --test
