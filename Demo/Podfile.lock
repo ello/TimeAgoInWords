@@ -1,20 +1,34 @@
 PODS:
-  - Nimble (0.4.1)
-  - Quick (0.3.0)
+  - Nimble (0.3.1)
+  - Quick (0.2.3)
   - TimeAgoInWords (0.1.0)
 
 DEPENDENCIES:
-  - Nimble
-  - Quick
+  - Nimble (from `https://github.com/Quick/Nimble`, branch `swift-1.1`)
+  - Quick (from `https://github.com/Quick/Quick`, branch `swift-1.1`)
   - TimeAgoInWords (from `../`)
 
 EXTERNAL SOURCES:
+  Nimble:
+    :branch: swift-1.1
+    :git: https://github.com/Quick/Nimble
+  Quick:
+    :branch: swift-1.1
+    :git: https://github.com/Quick/Quick
   TimeAgoInWords:
     :path: "../"
 
+CHECKOUT OPTIONS:
+  Nimble:
+    :commit: 1088d5f70497f34be946e3e2829a10529f7bea8e
+    :git: https://github.com/Quick/Nimble
+  Quick:
+    :commit: ce729620fa9db8d3c76b69bbfc429cece97dbe36
+    :git: https://github.com/Quick/Quick
+
 SPEC CHECKSUMS:
-  Nimble: 36913d5c822a29b3ace4113c197c79eb766a3615
-  Quick: 91a8e2ee5bb25eff88ebd0e7553abf728a5ac9bd
+  Nimble: 1b3c765852d63b9540a91e528e1e4f8afab79b6f
+  Quick: 2c59914d3b2548a0e8ed0288062d965d9bab03e2
   TimeAgoInWords: bd651f6532327035b41fd3b512ca9d3e90d2e379
 
 COCOAPODS: 0.36.3
