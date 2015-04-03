@@ -3,4 +3,4 @@ install:
 - bundle install
 - bundle exec pod install --project-directory=Demo/
 script:
-- set -o pipefail && xcodebuild -workspace Demo/Demo.xcworkspace -scheme Demo -configuration Debug test -sdk iphonesimulator | xcpretty -c --test
+- set -o pipefail && xcodebuild test -workspace Demo/Demo.xcworkspace -scheme Demo -configuration Debug -sdk iphonesimulator | xcpretty -c --test

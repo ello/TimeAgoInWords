@@ -8,4 +8,3 @@ target 'DemoTests' do
   pod 'Quick', git: 'https://github.com/Quick/Quick', branch: 'swift-1.1'
   pod 'Nimble', git: 'https://github.com/Quick/Nimble', branch: 'swift-1.1'
 end
-
