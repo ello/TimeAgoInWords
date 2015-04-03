@@ -1,0 +1,20 @@
+PODS:
+  - Nimble (0.4.1)
+  - Quick (0.3.0)
+  - TimeAgoInWords (0.1.0)
+
+DEPENDENCIES:
+  - Nimble
+  - Quick
+  - TimeAgoInWords (from `../`)
+
+EXTERNAL SOURCES:
+  TimeAgoInWords:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Nimble: 36913d5c822a29b3ace4113c197c79eb766a3615
+  Quick: 91a8e2ee5bb25eff88ebd0e7553abf728a5ac9bd
+  TimeAgoInWords: bd651f6532327035b41fd3b512ca9d3e90d2e379
+
+COCOAPODS: 0.36.3
