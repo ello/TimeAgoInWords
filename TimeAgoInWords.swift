@@ -71,6 +71,7 @@ public extension NSDate {
         default:
             let remainder = distanceInMinutes % MINUTES_IN_YEAR
             let deltaYears = Int(round(distanceInMinutes / MINUTES_IN_YEAR))
+            let distanceInYears = Int(floor(distanceInMinutes / MINUTES_IN_YEAR))
             if remainder < MINUTES_IN_QUARTER_YEAR {
                 return About + "\(deltaYears)" + Years
             }
