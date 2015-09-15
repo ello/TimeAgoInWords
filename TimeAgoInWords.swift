@@ -39,7 +39,7 @@ public struct TimeAgoInWordsStrings {
             case "days": Days = value
             case "months": Months = value
             case "years": Years = value
-            default: println("TimeAgoInWordsStrings.updateStrings key \(key) is not supported.")
+            default: print("TimeAgoInWordsStrings.updateStrings key \(key) is not supported.")
             }
         }
     }
