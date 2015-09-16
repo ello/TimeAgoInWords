@@ -21,6 +21,7 @@ public struct TimeAgoInWordsStrings {
     static var Day      = NSLocalizedString("d", comment:"One day in time")
     static var Days     = NSLocalizedString("d", comment:"More than one day in time")
     static var Months   = NSLocalizedString("mth", comment:"More than one month in time")
+    static var Year     = NSLocalizedString("y", comment:"one year in time")
     static var Years    = NSLocalizedString("y", comment:"More than one year in time")
 
     static public func updateStrings(dict: [String: String]) {
@@ -38,6 +39,7 @@ public struct TimeAgoInWordsStrings {
             case "day": Day = value
             case "days": Days = value
             case "months": Months = value
+            case "year": Year = value
             case "years": Years = value
             default: print("TimeAgoInWordsStrings.updateStrings key \(key) is not supported.")
             }
@@ -95,13 +97,13 @@ public extension NSDate {
             let remainder = distanceInMinutes % MINUTES_IN_YEAR
             let distanceInYears = Int(floor(distanceInMinutes / MINUTES_IN_YEAR))
             if remainder < MINUTES_IN_QUARTER_YEAR {
-                return TimeAgoInWordsStrings.About + "\(distanceInYears)" + TimeAgoInWordsStrings.Years
+                return TimeAgoInWordsStrings.About + "\(distanceInYears)" + (distanceInYears == 1 ? TimeAgoInWordsStrings.Year : TimeAgoInWordsStrings.Years)
             }
             else if remainder < MINUTES_IN_THREE_QUARTERS_YEAR {
-                return TimeAgoInWordsStrings.Over + "\(distanceInYears)" + TimeAgoInWordsStrings.Years
+                return TimeAgoInWordsStrings.Over + "\(distanceInYears)" + (distanceInYears == 1 ? TimeAgoInWordsStrings.Year : TimeAgoInWordsStrings.Years)
             }
             else {
-                return TimeAgoInWordsStrings.Almost + "\(distanceInYears + 1)" + TimeAgoInWordsStrings.Years
+                return TimeAgoInWordsStrings.Almost + "\(distanceInYears + 1)" + (distanceInYears == 0 ? TimeAgoInWordsStrings.Year : TimeAgoInWordsStrings.Years)
             }
         }
     }
