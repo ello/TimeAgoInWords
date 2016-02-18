@@ -11,23 +11,28 @@ import Foundation
 public class TimeAgoInWords {
 }
 
-private let thisBundle = NSBundle(forClass: TimeAgoInWords.self)
 private let table = "TimeAgoInWords"
+private let resourceBundle: NSBundle = {
+    let thisBundle = NSBundle(forClass: TimeAgoInWords.self)
+    let bundlePath = thisBundle.pathForResource("TimeAgoInWords", ofType: "bundle")
+    let bundle = NSBundle(path: bundlePath!)
+    return bundle!
+}()
 
 public struct TimeAgoInWordsStrings {
-    static var LessThan = NSLocalizedString("less-than", tableName: table, bundle: thisBundle, comment: "Indicates a less-than number")
-    static var About    = NSLocalizedString("approximate", tableName: table, bundle: thisBundle, comment: "Indicates an approximate number")
-    static var Over     = NSLocalizedString("exceeding", tableName: table, bundle: thisBundle, comment: "Indicates an exceeding number")
-    static var Almost   = NSLocalizedString("approaching", tableName: table, bundle: thisBundle, comment: "Indicates an approaching number")
-    static var Seconds  = NSLocalizedString("seconds", tableName: table, bundle: thisBundle, comment: "More than one second in time")
-    static var Minute   = NSLocalizedString("one-minute", tableName: table, bundle: thisBundle, comment: "One minute in time")
-    static var Minutes  = NSLocalizedString("minutes", tableName: table, bundle: thisBundle, comment: "More than one minute in time")
-    static var Hour     = NSLocalizedString("one-hour", tableName: table, bundle: thisBundle, comment: "One hour in time")
-    static var Hours    = NSLocalizedString("hours", tableName: table, bundle: thisBundle, comment: "More than one hour in time")
-    static var Day      = NSLocalizedString("one-day", tableName: table, bundle: thisBundle, comment: "One day in time")
-    static var Days     = NSLocalizedString("days", tableName: table, bundle: thisBundle, comment: "More than one day in time")
-    static var Months   = NSLocalizedString("months", tableName: table, bundle: thisBundle, comment: "More than one month in time")
-    static var Years    = NSLocalizedString("years", tableName: table, bundle: thisBundle, comment: "More than one year in time")
+    static var LessThan = NSLocalizedString("less-than", tableName: table, bundle: resourceBundle, comment: "Indicates a less-than number")
+    static var About    = NSLocalizedString("approximate", tableName: table, bundle: resourceBundle, comment: "Indicates an approximate number")
+    static var Over     = NSLocalizedString("exceeding", tableName: table, bundle: resourceBundle, comment: "Indicates an exceeding number")
+    static var Almost   = NSLocalizedString("approaching", tableName: table, bundle: resourceBundle, comment: "Indicates an approaching number")
+    static var Seconds  = NSLocalizedString("seconds", tableName: table, bundle: resourceBundle, comment: "More than one second in time")
+    static var Minute   = NSLocalizedString("one-minute", tableName: table, bundle: resourceBundle, comment: "One minute in time")
+    static var Minutes  = NSLocalizedString("minutes", tableName: table, bundle: resourceBundle, comment: "More than one minute in time")
+    static var Hour     = NSLocalizedString("one-hour", tableName: table, bundle: resourceBundle, comment: "One hour in time")
+    static var Hours    = NSLocalizedString("hours", tableName: table, bundle: resourceBundle, comment: "More than one hour in time")
+    static var Day      = NSLocalizedString("one-day", tableName: table, bundle: resourceBundle, comment: "One day in time")
+    static var Days     = NSLocalizedString("days", tableName: table, bundle: resourceBundle, comment: "More than one day in time")
+    static var Months   = NSLocalizedString("months", tableName: table, bundle: resourceBundle, comment: "More than one month in time")
+    static var Years    = NSLocalizedString("years", tableName: table, bundle: resourceBundle, comment: "More than one year in time")
 
     static public func updateStrings(dict: [String: String]) {
         for (key, value) in dict {
