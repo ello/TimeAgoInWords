@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'TimeAgoInWords', path: "../"
+pod 'TimeAgoInWords', path: "../TimeAgoInWords.podspec"
 
 target 'DemoTests' do
   pod 'Quick', git: 'https://github.com/Quick/Quick', branch: 'swift-1.1'
