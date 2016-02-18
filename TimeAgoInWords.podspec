@@ -25,5 +25,7 @@ Pod::Spec.new do |s|
   s.source_files = 'TimeAgoInWords.swift'
   s.frameworks = 'Foundation'
 
-  s.ios.resource_bundle = { 'TimeAgoInWords' => ['Localization/*.lproj'] }
+  s.ios.resource_bundles = {
+    'TimeAgoInWords' => ['Localization/*.lproj']
+  }
 end
