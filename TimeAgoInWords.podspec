@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'TimeAgoInWords'
-  s.version = '2.0.1'
+  s.version = '3.0.0'
   s.summary = 'A port of rails\' time_ago_in_words date method.'
   s.description = <<-DESC
   This is a direct port of: http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-distance_of_time_in_words
