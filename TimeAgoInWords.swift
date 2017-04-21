@@ -31,7 +31,9 @@ public struct TimeAgoInWordsStrings {
     static var Hours    = NSLocalizedString("hours", tableName: table, bundle: resourceBundle, comment: "More than one hour in time")
     static var Day      = NSLocalizedString("one-day", tableName: table, bundle: resourceBundle, comment: "One day in time")
     static var Days     = NSLocalizedString("days", tableName: table, bundle: resourceBundle, comment: "More than one day in time")
+    static var Month    = NSLocalizedString("month", tableName: table, bundle: resourceBundle, comment:"One month in time")
     static var Months   = NSLocalizedString("months", tableName: table, bundle: resourceBundle, comment: "More than one month in time")
+    static var Year     = NSLocalizedString("year", tableNmae: table, bundle: resourceBundle, comment:"One year in time")
     static var Years    = NSLocalizedString("years", tableName: table, bundle: resourceBundle, comment: "More than one year in time")
 
     static public func updateStrings(_ dict: [String: String]) {
@@ -48,7 +50,9 @@ public struct TimeAgoInWordsStrings {
             case "hours": Hours = value
             case "day": Day = value
             case "days": Days = value
+            case "month": Month = value
             case "months": Months = value
+            case "year": Year = value
             case "years": Years = value
             default: print("TimeAgoInWordsStrings.updateStrings key \(key) is not supported.")
             }
@@ -65,6 +69,7 @@ public extension Date {
 
         let distanceInSeconds = round(abs(toDate.timeIntervalSince(self)))
         let distanceInMinutes = round(distanceInSeconds / 60.0)
+        let distanceInMonths = (Int(round(distanceInMinutes / 43_200.0)))
 
         switch distanceInMinutes {
         case 0...1:
@@ -97,22 +102,22 @@ public extension Date {
             return "\(Int(round(distanceInMinutes / 1_440.0)))" + TimeAgoInWordsStrings.Days
         // 30 days up to 60 days
         case 43_200...86_400:
-            return TimeAgoInWordsStrings.About + "\(Int(round(distanceInMinutes / 43_200.0)))" + TimeAgoInWordsStrings.Months
+            return TimeAgoInWordsStrings.About + "\(distanceInMonths)" + (distanceInMonths == 1 ? TimeAgoInWordsStrings.Month : TimeAgoInWordsStrings.Months)
         // 60 days up to 365 days
         case 86_400...525_600:
-            return "\(Int(round(distanceInMinutes / 43_200.0)))" + TimeAgoInWordsStrings.Months
+            return "\(distanceInMonths)" + (distanceInMonths == 1 ? TimeAgoInWordsStrings.Month : TimeAgoInWordsStrings.Months)
         // TODO: handle leap year like rails does
         default:
             let remainder = distanceInMinutes.truncatingRemainder(dividingBy: MINUTES_IN_YEAR)
             let distanceInYears = Int(floor(distanceInMinutes / MINUTES_IN_YEAR))
             if remainder < MINUTES_IN_QUARTER_YEAR {
-                return TimeAgoInWordsStrings.About + "\(distanceInYears)" + TimeAgoInWordsStrings.Years
+                return TimeAgoInWordsStrings.About + "\(distanceInYears)" + (distanceInYears == 1 ? TimeAgoInWordsStrings.Year : TimeAgoInWordsStrings.Years)
             }
             else if remainder < MINUTES_IN_THREE_QUARTERS_YEAR {
-                return TimeAgoInWordsStrings.Over + "\(distanceInYears)" + TimeAgoInWordsStrings.Years
+                return TimeAgoInWordsStrings.Over + "\(distanceInYears)" + (distanceInYears == 1 ? TimeAgoInWordsStrings.Year : TimeAgoInWordsStrings.Years)
             }
             else {
-                return TimeAgoInWordsStrings.Almost + "\(distanceInYears + 1)" + TimeAgoInWordsStrings.Years
+                return TimeAgoInWordsStrings.Almost + "\(distanceInYears + 1)" + (distanceInYears == 0 ? TimeAgoInWordsStrings.Year : TimeAgoInWordsStrings.Years)
             }
         }
     }
