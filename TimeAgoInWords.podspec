@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'TimeAgoInWords'
-  s.version = '3.0.0'
+  s.version = '3.1.0'
   s.summary = 'A port of rails\' time_ago_in_words date method.'
   s.description = <<-DESC
   This is a direct port of: http://api.rubyonrails.org/classes/ActionView/Helpers/DateHelper.html#method-i-distance_of_time_in_words
@@ -19,8 +19,9 @@ Pod::Spec.new do |s|
   s.authors = 'Ello', 'Ryan Boyajian'
   s.source = { git: 'https://github.com/ello/TimeAgoInWords.git', tag: s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.9'
+  s.swift_versions = '4.1'
+  s.ios.deployment_target = '10.3'
+  s.osx.deployment_target = '10.3'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
 
